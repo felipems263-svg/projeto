@@ -263,12 +263,12 @@ public class Main {
     private static Conta buscarContaOuAvisar() {
         int numero = lerInteiro("Numero da conta");
         if (numero == -1) return null;
-        Optional<Conta> resultado = banco.buscarPorNumero(numero);
-        if (resultado.isEmpty()) {
+        Conta resultado = banco.buscarPorNumero(numero);
+        if (resultado == null) {
             System.out.println("[ERRO] Conta " + numero + " nao encontrada.\n");
             return null;
         }
-        return resultado.get();
+        return resultado;
     }
 
 
